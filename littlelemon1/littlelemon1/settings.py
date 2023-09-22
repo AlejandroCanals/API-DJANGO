@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'restaurant',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -77,19 +80,14 @@ WSGI_APPLICATION = 'littlelemon1.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-        'default': {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DB_NAME',
-        'USER': 'DB_USER',
-        'PASSWORD': 'DB_PASSWORD',
-        'HOST': 'DB_HOST',
-        'PORT': 'DB_PORT',
-        'OPTIONS': {
-        'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        
-        }
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
- 
 }
 AUTH_USER_MODEL = 'auth.User'
 
@@ -134,3 +132,12 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # Para autenticación basada en token
+        'rest_framework.authentication.SessionAuthentication',  # Para autenticación basada en sesiones
+    ],
+
+}
+DJOSER={"USER_ID_FIELD":"username"}

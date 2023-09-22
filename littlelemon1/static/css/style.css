@@ -253,3 +253,32 @@ footer p {
         width: 100%;
     }
   }
+
+  /* styles.css */
+
+/* Estilo para el formulario en general */
+# {
+    background-color: #aa3434;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para los campos de entrada */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Estilo para el botón de enviar */
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
