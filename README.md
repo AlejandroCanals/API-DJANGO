@@ -1,5 +1,5 @@
 # API-DJANGO
-This project is a Django API for managing users, a restaurant menu, and table reservations. It offers user authentication, CRUD operations for users and menu items, and booking functionality.
+Django API for managing users, a restaurant menu, and table reservations. It offers user authentication, CRUD operations for users and menu items, and booking functionality.
 
 
 # Here's a summary of what these Django URL routes do:
